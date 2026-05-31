@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardinal Health — Job Offer Letter</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #cc0000;
+  --red-dark: #a00000;
+  --dark: #1a1a1a;
+  --mid: #555;
+  --muted: #888;
+  --border: #ddd;
+  --bg: #f0f0f0;
+  --surface: #fff;
+  --light: #f7f7f7;
+  --field-line: #ccc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  font-family: 'Barlow', sans-serif;
+  min-height: 100vh;
+  padding: 36px 20px 60px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.controls {
+  width: 100%; max-width: 760px;
+  display: flex; justify-content: flex-end; gap: 10px;
+  margin-bottom: 18px; flex-wrap: wrap;
+}
+.btn {
+  font-family: 'Barlow', sans-serif; font-size: 12px;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  padding: 9px 22px; border: none; cursor: pointer; transition: background .15s, transform .1s;
+}
+.btn:active { transform: scale(.97); }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-ghost { background: #fff; color: var(--dark); border: 1.5px solid var(--border); }
+.btn-ghost:hover { background: var(--light); }
+
+/* Paper */
+.paper {
+  width: 100%; max-width: 760px;
+  background: var(--surface);
+  box-shadow: 0 6px 40px rgba(0,0,0,.12);
+  position: relative;
+  overflow: hidden;
+}
+.paper::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: var(--red);
+}
+
+/* Header */
+.header {
+  padding: 44px 60px 28px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+}
+.brand .wordmark {
+  font-size: 28px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--dark); display: flex; align-items: center; gap: 2px;
+}
+.brand .wordmark em { color: var(--red); font-style: normal; }
+.brand .sub { font-size: 11px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 3px; }
+.header-right { text-align: right; font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+/* Banner */
+.banner {
+  background: var(--red); padding: 16px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.banner h1 { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: .04em; text-transform: uppercase; }
+.banner .badge {
+  background: rgba(255,255,255,.18); color: #fff; font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase; padding: 5px 14px;
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+/* Body */
+.body { padding: 40px 60px 50px; }
+
+/* Section */
+.section { margin-bottom: 32px; }
+.section-title {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 14px; padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--border); display: flex; align-items: center; gap: 8px;
+}
+.section-title::before { content: ''; display: inline-block; width: 10px; height: 2px; background: var(--red); }
+
+/* Grid layouts */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px 20px; }
+
+/* Field */
+.field-group { display: flex; flex-direction: column; gap: 4px; }
+.field-group label {
+  font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.field-group input, .field-group select, .field-group textarea {
+  font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--dark);
+  background: transparent; border: none; border-bottom: 1.5px solid var(--field-line);
+  padding: 6px 0; outline: none; transition: border-color .15s; width: 100%;
+}
+.field-group select { cursor: pointer; }
+.field-group textarea { resize: vertical; min-height: 70px; line-height: 1.6; }
+.field-group input:focus, .field-group select:focus, .field-group textarea:focus { border-bottom-color: var(--red); }
+.field-group input::placeholder, .field-group textarea::placeholder { color: #bbb; }
+
+/* Compensation highlight */
+.comp-box {
+  background: var(--light); border-left: 4px solid var(--red);
+  padding: 18px 22px; margin-bottom: 32px; display: grid;
+  grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+.comp-box .comp-item { display: flex; flex-direction: column; gap: 5px; }
+.comp-box .comp-item label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.comp-box .comp-item input {
+  font-family: 'Barlow', sans-serif; font-size: 20px; font-weight: 700;
+  color: var(--red); background: transparent; border: none;
+  border-bottom: 1.5px solid var(--field-line); padding: 4px 0;
+  outline: none; transition: border-color .15s; width: 100%;
+}
+.comp-box .comp-item input:focus { border-bottom-color: var(--red-dark); }
+.comp-box .comp-item input::placeholder { color: #ddd; font-weight: 400; }
+
+/* Conditions list */
+.conditions { display: flex; flex-direction: column; gap: 12px; }
+.condition-row { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; }
+.cnum {
+  width: 22px; height: 22px; background: var(--red); color: #fff;
+  font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+}
+
+/* Signature block */
+.sig-area {
+  margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.sig-col .sig-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+.sig-col .sig-line { border-bottom: 1.5px solid var(--dark); margin-bottom: 6px; }
+.sig-col .sig-name-field {
+  font-family: 'Merriweather', serif; font-style: italic; font-size: 15px;
+  color: var(--dark); background: transparent; border: none; border-bottom: 1.5px solid var(--field-line);
+  outline: none; width: 100%; padding: 3px 0; transition: border-color .15s;
+}
+.sig-col .sig-name-field:focus { border-bottom-color: var(--red); }
+.sig-col .sig-name-field::placeholder { color: #ccc; }
+.sig-col .sig-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.sig-col input.field-inline {
+  font-family: 'Barlow', sans-serif; font-size: 13px; color: var(--mid);
+  background: transparent; border: none; border-bottom: 1.5px dashed var(--field-line);
+  outline: none; width: 100%; padding: 3px 0; margin-top: 2px; transition: border-color .15s;
+}
+.sig-col input.field-inline:focus { border-bottom-color: var(--red); }
+.sig-col input.field-inline::placeholder { color: #ccc; }
+
+/* Acceptance box */
+.acceptance {
+  background: #fff8f8; border: 1.5px solid #f5cccc;
+  padding: 22px 28px; margin-top: 32px;
+}
+.acceptance h3 { font-size: 13px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+.acceptance p { font-family: 'Merriweather', serif; font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+.accept-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+
+/* Footer */
+.footer {
+  padding: 18px 60px; background: var(--dark);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: rgba(255,255,255,.45); letter-spacing: .06em;
+}
+.footer strong { color: rgba(255,255,255,.75); font-weight: 600; }
+
+/* Divider */
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .controls { display: none; }
+  .paper { box-shadow: none; max-width: 100%; }
+  .field-group input, .field-group select, .field-group textarea,
+  .comp-box .comp-item input, .sig-col .sig-name-field, .sig-col input.field-inline { border-bottom-color: transparent !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn btn-ghost" onclick="clearAll()">Clear form</button>
+  <button class="btn btn-red" onclick="window.print()">&#128438; Print / Save PDF</button>
+</div>
+
+<div class="paper" id="paper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <svg width="52" height="24" viewBox="0 0 52 24" fill="none" style="display:block;margin-bottom:5px">
+        <path d="M2 20 Q12 3 26 9 Q38 15 50 3" stroke="#cc0000" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M41 3 L50 3 L50 12" stroke="#cc0000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="wordmark">Cardinal<em>Health</em><sup style="font-size:11px;color:#999;margin-left:2px">™</sup></div>
+      <div class="sub">Essential to care</div>
+    </div>
+    <div class="header-right">
+      7000 Cardinal Place &nbsp;|&nbsp; Dublin, Ohio 43017<br>
+      Phone: (614) 757-5000<br>
+      cardinalhealth.com<br><br>
+      <span id="hdr-date" style="font-weight:600;color:#555;"></span>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1>Official Employment Offer</h1>
+    <div class="badge">Confidential</div>
+  </div>
+
+  <div class="body">
+
+    <!-- Candidate info -->
+    <div class="section">
+      <div class="section-title">Candidate information</div>
+      <div class="grid-2">
+        <div class="field-group">
+          <label>First name</label>
+          <input type="text" placeholder="First name">
+        </div>
+        <div class="field-group">
+          <label>Last name</label>
+          <input type="text" placeholder="Last name">
+        </div>
+        <div class="field-group">
+          <label>Mailing address</label>
+          <input type="text" placeholder="Street address">
+        </div>
+        <div class="field-group">
+          <label>City, State &amp; ZIP</label>
+          <input type="text" placeholder="City, ST  XXXXX">
+        </div>
+        <div class="field-group">
+          <label>Email address</label>
+          <input type="email" placeholder="email@example.com">
+        </div>
+        <div class="field-group">
+          <label>Phone number</label>
+          <input type="tel" placeholder="(XXX) XXX-XXXX">
+        </div>
+      </div>
+    </div>
+
+    <!-- Position details -->
+    <div class="section">
+      <div class="section-title">Position details</div>
+      <div class="grid-2">
+        <div class="field-group">
+          <label>Job title</label>
+          <input type="text" placeholder="e.g. Senior Distribution Analyst">
+        </div>
+        <div class="field-group">
+          <label>Requisition / Job ID</label>
+          <input type="text" placeholder="REQ-XXXXXX">
+        </div>
+        <div class="field-group">
+          <label>Department</label>
+          <input type="text" placeholder="e.g. Pharmaceutical Distribution">
+        </div>
+        <div class="field-group">
+          <label>Division</label>
+          <select>
+            <option value="" disabled selected>Select division…</option>
+            <option>Pharmaceutical Segment</option>
+            <option>Medical Segment</option>
+            <option>Nuclear &amp; Precision Health</option>
+            <option>At-Home Solutions</option>
+            <option>Corporate Functions</option>
+            <option>Global Sourcing</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Work location</label>
+          <input type="text" placeholder="e.g. Dublin, OH (Hybrid)">
+        </div>
+        <div class="field-group">
+          <label>Reports to</label>
+          <input type="text" placeholder="Manager name &amp; title">
+        </div>
+        <div class="field-group">
+          <label>Employment type</label>
+          <select>
+            <option value="" disabled selected>Select type…</option>
+            <option>Full-Time Regular</option>
+            <option>Part-Time Regular</option>
+            <option>Contract</option>
+            <option>Temporary</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>FLSA status</label>
+          <select>
+            <option value="" disabled selected>Select status…</option>
+            <option>Exempt</option>
+            <option>Non-Exempt</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Proposed start date</label>
+          <input type="text" placeholder="Month DD, YYYY">
+        </div>
+        <div class="field-group">
+          <label>Offer expiration date</label>
+          <input type="text" placeholder="Month DD, YYYY">
+        </div>
+      </div>
+    </div>
+
+    <!-- Compensation -->
+    <div class="section">
+      <div class="section-title">Compensation package</div>
+      <div class="comp-box">
+        <div class="comp-item">
+          <label>Base salary (annual)</label>
+          <input type="text" placeholder="$0,000">
+        </div>
+        <div class="comp-item">
+          <label>Sign-on bonus</label>
+          <input type="text" placeholder="$0,000">
+        </div>
+        <div class="comp-item">
+          <label>Target bonus %</label>
+          <input type="text" placeholder="0%">
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="field-group">
+          <label>Pay frequency</label>
+          <select>
+            <option value="" disabled selected>Select…</option>
+            <option>Bi-weekly</option>
+            <option>Semi-monthly</option>
+            <option>Monthly</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Equity / RSU grant</label>
+          <input type="text" placeholder="e.g. 500 RSUs over 3 yrs">
+        </div>
+        <div class="field-group">
+          <label>Pay grade / Band</label>
+          <input type="text" placeholder="e.g. Grade 8">
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="section">
+      <div class="section-title">Benefits summary</div>
+      <div class="grid-2">
+        <div class="field-group">
+          <label>Benefits eligibility date</label>
+          <input type="text" placeholder="First day of employment / other">
+        </div>
+        <div class="field-group">
+          <label>Paid time off (PTO)</label>
+          <input type="text" placeholder="e.g. 20 days per year">
+        </div>
+        <div class="field-group" style="grid-column: span 2;">
+          <label>Benefits package highlights</label>
+          <textarea placeholder="Medical, dental, and vision insurance (multiple plan options); 401(k) with company match; life and disability insurance; employee assistance program; tuition reimbursement…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conditions of employment -->
+    <div class="section">
+      <div class="section-title">Conditions of employment</div>
+      <div class="conditions">
+        <div class="condition-row">
+          <div class="cnum">1</div>
+          <div class="field-group">
+            <label>Background check</label>
+            <input type="text" placeholder="e.g. Offer contingent upon satisfactory completion of background screening">
+          </div>
+        </div>
+        <div class="condition-row">
+          <div class="cnum">2</div>
+          <div class="field-group">
+            <label>Drug screening</label>
+            <input type="text" placeholder="e.g. Pre-employment drug test required prior to start date">
+          </div>
+        </div>
+        <div class="condition-row">
+          <div class="cnum">3</div>
+          <div class="field-group">
+            <label>Work authorization / I-9</label>
+            <input type="text" placeholder="e.g. Must provide documentation of eligibility to work in the U.S.">
+          </div>
+        </div>
+        <div class="condition-row">
+          <div class="cnum">4</div>
+          <div class="field-group">
+            <label>Other condition</label>
+            <input type="text" placeholder="e.g. Signing of confidentiality and non-disclosure agreement">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional notes -->
+    <div class="section">
+      <div class="section-title">Additional notes</div>
+      <div class="field-group">
+        <label>Custom message to candidate</label>
+        <textarea placeholder="We are thrilled to extend this offer and look forward to welcoming you to the Cardinal Health team. We believe your skills and experience will make a meaningful contribution to our mission of making healthcare supply chains work better for everyone…"></textarea>
+      </div>
+    </div>
+
+    <!-- Signatures -->
+    <div class="sig-area">
+      <div class="sig-col">
+        <div class="sig-label">Authorized by — Cardinal Health</div>
+        <div class="sig-line" style="height:42px;"></div>
+        <input class="sig-name-field" type="text" placeholder="Signature">
+        <div class="sig-sub" style="margin-top:8px;">
+          <input class="field-inline" type="text" placeholder="Printed name">
+          <input class="field-inline" type="text" placeholder="Title" style="margin-top:6px;">
+          <input class="field-inline" type="text" placeholder="Date" style="margin-top:6px;">
+        </div>
+      </div>
+      <div class="sig-col">
+        <div class="sig-label">HR Representative</div>
+        <div class="sig-line" style="height:42px;"></div>
+        <input class="sig-name-field" type="text" placeholder="Signature">
+        <div class="sig-sub" style="margin-top:8px;">
+          <input class="field-inline" type="text" placeholder="Printed name">
+          <input class="field-inline" type="text" placeholder="Title" style="margin-top:6px;">
+          <input class="field-inline" type="text" placeholder="Date" style="margin-top:6px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Acceptance -->
+    <div class="acceptance">
+      <h3>&#10003; Candidate acceptance</h3>
+      <p>By signing below, I acknowledge that I have read, understand, and accept the terms of this employment offer. I understand this offer is contingent upon successful completion of all pre-employment requirements listed above and does not constitute a contract of employment.</p>
+      <div class="accept-row">
+        <div class="sig-col">
+          <div class="sig-line" style="height:42px;"></div>
+          <input class="sig-name-field" type="text" placeholder="Candidate signature">
+          <div class="sig-sub" style="margin-top:8px;">
+            <input class="field-inline" type="text" placeholder="Printed name" style="margin-top:4px;">
+          </div>
+        </div>
+        <div class="sig-col">
+          <div class="sig-line" style="height:42px;"></div>
+          <input class="sig-name-field" type="text" placeholder="Date accepted">
+          <div class="sig-sub" style="margin-top:8px;">
+            <input class="field-inline" type="text" placeholder="Phone / Email confirmation" style="margin-top:4px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <span><strong>Cardinal Health™</strong> &nbsp;—&nbsp; 7000 Cardinal Place, Dublin, Ohio 43017</span>
+    <span>Confidential &nbsp;|&nbsp; cardinalhealth.com</span>
+  </div>
+
+</div><!-- /paper -->
+
+<script>
+  const d = new Date();
+  const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('hdr-date').textContent = d.toLocaleDateString('en-US', opts);
+
+  function clearAll() {
+    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], textarea').forEach(el => el.value = '');
+    document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+  }
+</script>
+</body>
+</html>
